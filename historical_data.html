@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>View Historical Stock Data</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #0056b3;
+        }
+        label {
+            margin-bottom: 10px;
+            display: block;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #004494;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>View Historical Stock Data</h1>
+        <form action="/display_historical_data" method="post">
+            <label for="stock_symbol">Enter Stock Symbol:</label>
+            <input type="text" name="stock_symbol" required placeholder="e.g., AAPL, TSLA, RELIANCE.NS">
+
+            <label for="year">Select Year:</label>
+            <input type="number" name="year" min="1990" max="{{ current_year }}" required placeholder="e.g., 2023">
+
+            <label for="market">Select Market:</label>
+            <select name="market" required>
+                <option value="India">Indian Stock Market</option>
+                <option value="US">US Stock Market</option>
+            </select>
+
+            <button type="submit">View Data</button>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2024 Stock Prediction App. All rights reserved.</p>
+    </footer>
+</body>
+</html>
