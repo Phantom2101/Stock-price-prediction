@@ -15,7 +15,7 @@ KEYWORDS:
 <br>
 
 
-<b>!!!HERE ARE THE DETAILS ABOUT THE PROJECT AND WHAT FOLDERS CONTAIN WHICH FILES!!!</b>
+<b>⚠️HERE ARE THE DETAILS ABOUT THE PROJECT AND WHAT FOLDERS CONTAIN WHICH FILES⚠️</b>
 <br><br>
 <i>#1 'templates' folder has all html codes.
 <br><br>
