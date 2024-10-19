@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Stock Price Prediction Result</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Stock Price Prediction for {{ stock_symbol }}</h1>
+        <p>Current Price: {{ current_price }} {{ 'INR' if stock_symbol.endswith('.NS') else 'USD' }}</p>
+        <p>Predicted Prices for the next {{ time_interval }} days:</p>
+        <ul>
+            {% for price in predicted_prices %}
+                <li>Day {{ loop.index }}: {{ price }}</li>
+            {% endfor %}
+        </ul>
+        <p>Trend Prediction: The stock is expected to {{ predicted_trend }}.</p>
+        <p>Data as of: {{ current_date }}</p>  <!-- Correctly use current_date here -->
+        
+        <!-- Graph display -->
+        <h2>Stock Price Graph</h2>
+        <img src="{{ url_for('static', filename=graph) }}" alt="Stock Price Graph">
+        
+        <!-- Link to Historical Data -->
+        <h3><a href="{{ url_for('historical_data') }}">View Historical Data</a></h3>
+    </div>
+</body>
+</html>

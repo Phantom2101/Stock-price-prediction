@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Stock Prediction</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Stock Market Predictor</h1>
+        <form action="/predict" method="post">
+            <label for="stock">Enter Stock Symbol:</label>
+            <input type="text" name="stock" required>
+
+            <label for="market">Select Market:</label>
+            <select name="market" required>
+                <option value="India">India</option>
+                <option value="US">US</option>
+            </select>
+
+            <label for="time_interval">Prediction Time Interval (Days):</label>
+            <input type="number" name="time_interval" min="1" required>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        <a href="/historical_data">View Historical Data</a>
+    </div>
+</body>
+</html>
