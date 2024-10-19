@@ -1,15 +1,7 @@
-!!WHILE TAKING THE CODE CONSIDER THE FOLLOWING DIRECTORY PATH ON YOUR DESKTOP!!
-
- app/
-│
-├── app.py
-├── static/
-│   └── style.css    # Your CSS file
-│   └── graph.png    # Graphs will be saved here
-│
-└── templates/
-    ├── index.html
-    └── result.html
-
-    
-!!SEE CODE SECTION IF DON'T UNDERSTAND IN PREVIEW!!
+Here are the details about the Project and What folders contain which Files!
+<br><br>
+#1 'templates' folder has all html codes.
+<br><br>
+#2 'static' folder has css file and the dynamically generated graphs are stored here.
+<br><br>
+#3. 'app.py' is the main python code which remains in the main folder.
