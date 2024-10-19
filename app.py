@@ -19,7 +19,7 @@ def fetch_stock_data(symbol, start_date='1990-01-01'):
         print(f"No data found for {symbol}.")
         return None
     return stock_data
-
+#hi git check
 # Function to analyze stock performance
 def analyze_stock_performance(data):
     if len(data) < 2:
