@@ -10,4 +10,6 @@
 └── templates/
     ├── index.html
     └── result.html
+
+    
 !!SEE CODE SECTION IF DON'T UNDERSTAND IN PREVIEW!!
