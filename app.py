@@ -32,13 +32,13 @@ def analyze_stock_performance(data):
 
     # Determine severity of change
     if percentage_change > 20:
-        trend = "rapidly increased"
+        trend = "rapidly increased from data analyzed"
     elif percentage_change > 10:
-        trend = "moderately increased"
+        trend = "moderately increased from the data analyzed"
     elif percentage_change > 0:
-        trend = "slowly increased"
+        trend = "slowly increased from data analyzed"
     elif percentage_change < 0:
-        trend = "decreased"
+        trend = "decreased from the data analyzed"
     else:
         trend = "no change"
 
@@ -81,7 +81,7 @@ def predict():
         future_days = np.array([[last_day_index + i] for i in range(1, time_interval + 1)])
         predicted_prices = model.predict(future_days)
 
-        current_price = stock_data['Close'].iloc[-1]
+        current_price = stock_data['Close'].iloc[-1].item()
 
         # Create and save the graph
         plt.figure(figsize=(10, 5))
@@ -109,13 +109,13 @@ def predict():
         current_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
         return render_template('result.html',
-                               stock_symbol=stock_symbol,
-                               current_price=current_price,
-                               predicted_prices=predicted_prices,
-                               time_interval=time_interval,
-                               predicted_trend="rise" if predicted_prices[-1] > current_price else "fall",
-                               graph='graph.png',
-                               current_date=current_date)  # Pass current date here
+                            stock_symbol=stock_symbol,
+                            current_price=current_price,
+                            predicted_prices=predicted_prices,
+                            time_interval=time_interval,
+                            predicted_trend="rise" if predicted_prices[-1] > current_price else "fall",
+                            graph='graph.png',
+                            current_date=current_date)  # Pass current date here
     else:
         return "Error fetching data. Please check the ticker symbol and try again."
 
@@ -143,8 +143,8 @@ def display_historical_data():
 
     if stock_data is not None and not stock_data.empty:
         # Calculate the percentage change over the year
-        first_price = stock_data['Close'].iloc[0]
-        last_price = stock_data['Close'].iloc[-1]
+        first_price = stock_data['Close'].iloc[0].item()
+        last_price = stock_data['Close'].iloc[-1].item()
         price_change = last_price - first_price
         percentage_change = (price_change / first_price) * 100
 
